@@ -57,6 +57,7 @@ class ModelManager:
                     self._router = laya.Router(
                         device=self._device(),
                         token=self.settings.hf_token,
+                        standalone_repos=True,
                         preload=True,
                     )
         return self._router
@@ -76,10 +77,14 @@ class ModelManager:
             async with self._lock:
                 if target not in self._agents:
                     laya = _import_laya()
-                    subfolder = None if target == "english" else target
+                    repos = {
+                        "english": "convaiinnovations/laya",
+                        "multilingual": "convaiinnovations/laya-multilingual",
+                        "typed-decisions": "convaiinnovations/laya-typed-decisions",
+                    }
                     self._agents[target] = laya.load(
-                        "convaiinnovations/laya", device=self._device(),
-                        token=self.settings.hf_token, subfolder=subfolder,
+                        repos[target], device=self._device(),
+                        token=self.settings.hf_token,
                     )
         agent = self._agents[target]
         return await asyncio.to_thread(agent.system_one, state, questions)
