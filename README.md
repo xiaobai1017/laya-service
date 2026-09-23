@@ -17,3 +17,7 @@ Set `LAYA_PRELOAD=true` in production to load the Router during startup. The fir
 Use `LAYA_DEVICE=auto` (or omit it) for automatic CPU/CUDA selection. The service translates this value to Laya's automatic device mode.
 
 The service supports `jev-latest`, `laya`, `laya-english`, `laya-multilingual`, and `laya-typed-decisions`. It intentionally does not expose chat completions because Laya returns typed decisions rather than generated text.
+
+## License
+
+[MIT](LICENSE)
