@@ -18,6 +18,11 @@ Use `LAYA_DEVICE=auto` (or omit it) for automatic CPU/CUDA selection. The servic
 
 The service supports `jev-latest`, `laya`, `laya-english`, `laya-multilingual`, and `laya-typed-decisions`. It intentionally does not expose chat completions because Laya returns typed decisions rather than generated text.
 
+## Documentation
+
+- [API 接口文档 (Jev 兼容 System One API)](API.md)
+
 ## License
 
 [MIT](LICENSE)
+
